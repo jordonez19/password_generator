@@ -1,6 +1,11 @@
 
 
 const passwordService = (uppercase, lowercase, numbers, special, passwordLength) => {
+
+    if (!uppercase && !lowercase && !numbers && !special) {
+        throw new Error("you have to pass at least one of the following characters to generate a passphrase")
+    }
+
     const upperLetter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const lowerLetter = "abcdefghijklmnopqrstuvwxyz";
     const specialChars = "!£$%&*()_+[]{}<>?";
@@ -24,4 +29,4 @@ const passwordService = (uppercase, lowercase, numbers, special, passwordLength)
     return passwordFinal;
 };
 
-export default {passwordService};
+export default { passwordService };
